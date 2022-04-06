@@ -1,3 +1,7 @@
+{{ config (materialized = 'table')}}
+--{{ config (materialized = 'view')}}
+--{{ config (materialized = 'ephemeral')}}
+
 with orders as  (
     select * from {{ ref('stg_orders' )}}
 ),
