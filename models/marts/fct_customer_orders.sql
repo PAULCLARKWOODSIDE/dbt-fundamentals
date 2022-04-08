@@ -11,9 +11,9 @@ orders as (
 
     select * from {{ source('jaffle_shop', 'orders') }}
 
-),
+)
 
-payments as (
+,payments as (
 
     select * from {{ source('stripe', 'payment') }}
 
