@@ -10,7 +10,7 @@
     
     {% set get_drop_commands_query %}
         SELECT CASE WHEN table_type = 'VIEW' THEN table_type ELSE 'TABLE' END AS drop_type,
-               'DROP ' || drop_type || ' {{database | upper}}.' || table_schema ||'.' || table_name || ';'
+               'DROP ' || drop_type || ' {{database | upper}}.' || table_schema ||'.' || table_name || '; '
           FROM {{database}}.information_schema.tables
          WHERE table_schema = upper('{{schema}}')
            AND last_altered <= CURRENT_DATE - {{days}}
